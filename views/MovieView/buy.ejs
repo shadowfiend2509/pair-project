@@ -1,0 +1,17 @@
+<%-include('../../Partial/navBar/header.ejs')%>
+<%=JSON.stringify(Movie)%>
+
+<button id='test'>dsafsaf</button>
+
+
+
+<% let benar = false %>
+
+<button class="<%= benar ? "active": "" %>">Aktif</button>
+<button>Tidak aktif</button>
+
+<style>
+    button.active {
+        background-color: blue
+    }
+</style>

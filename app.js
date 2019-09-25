@@ -1,8 +1,9 @@
 const express = require('express');
 const app = express();
 const PORT = 3000;
+const Userr = require('./models').User;
 const Movie = require('./Router/MovieRouter');
-// const Login = require('./Router/LoginRouter');
+const User = require('./Router/UserRouter');
 app.set('view engine', 'ejs');
 
 app.use(express.json()) // for parsing application/json
@@ -11,8 +12,17 @@ app.use(express.urlencoded({ extended: true })) // for parsing application/x-www
 app.listen(PORT,()=> console.log(`Linstening on PORT ${PORT}`));
 
 app.get('/',(req,res)=>{
-    res.render('index')
+    Userr.findAll()
+    .then(user=>{
+        let pass=0;
+        for(let i=0;i<user.length;i++){
+            if(user[i].loginStatus==1) pass=1
+        }
+        res.render('index',{
+            Pass:pass
+        })
+    })
 })
 
 app.use('/movies',Movie);
-// app.use('/login',Login);
+app.use('/users',User);
