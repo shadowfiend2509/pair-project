@@ -1,0 +1,22 @@
+<%-include('../../Partial/navBar/header.ejs')%>
+<div style = 'text-align: center;font-size: 45px;font-family: cursive'>
+    <%=Category.name%>
+</div>
+<table style='width:80%;font-size: 20px'>
+        <td><a href='/movies/category'>Back</a></td>
+    <tr>
+        <td>Movie Name</td>
+        <td>Price</td>
+        <td>Seat</td>
+        <td>Option</td>
+    </tr>
+    <%Category.Movies.forEach(Movie=>{%>
+        <tr>
+            <td><%=Movie.name%></td>
+            <td><%=Movie.price%></td>
+            <td><%=Movie.seats%></td>
+            <td><a href='/movies/buy/<%=Movie.id%>'>Buy</a></td>
+        </tr>
+    <%})%>
+</table>
+    

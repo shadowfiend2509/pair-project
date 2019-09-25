@@ -1,0 +1,22 @@
+<%-include('../../Partial/navBar/header.ejs')%>
+<table style = 'width:100%'>
+    <tr>
+        <td><h2><a href='/movies'>All Movies</a></h2></td>
+        <%Data.forEach(Movie=>{%>
+            <%if(Movie.name=='Action'){%>
+                <td><h2><a href='/movies/category/<%=Movie.id%>'>Action</h2></td>
+            <%}else if(Movie.name=='Romance') {%>
+                <td><h2><a href='/movies/category/<%=Movie.id%>'>Romance</h2></td>
+            <%}else if(Movie.name=='Horror') {%>
+                <td><h2><a href='/movies/category/<%=Movie.id%>'>Horror</h2></td>
+            <%}else if(Movie.name=='Comedy') {%>
+                <td><h2><a href='/movies/category/<%=Movie.id%>'>Comedy</h2></td>
+            <%}else if(Movie.name=='Thriller') {%>
+                <td><h2><a href='/movies/category/<%=Movie.id%>'>Thriller</h2></td>
+            <%}else if(Movie.name=='18+') {%>
+                <td><h2><a href='/movies/category/<%=Movie.id%>'>18+</h2></td>
+            <%}%>
+        <%})%>
+    </tr>
+</table>
+    

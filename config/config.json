@@ -1,0 +1,9 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "shadowfiend",
+    "database": "CinemaEDA-PairProject",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
