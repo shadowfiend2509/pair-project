@@ -13,7 +13,7 @@
             <td><%=Movie.price%></td>
             <td><%=Movie.seats%></td>
             <%if(Pass==1){%>
-                <td><a href='/buy/<%=Movie.name%>' style='font-size:20px'>Buy</a></td>
+                <td><a href='/movies/buy/<%=Movie.name%>' style='font-size:20px'>Buy</a></td>
             <%}else{%>
                 <td><a href='/users/login'>Buy</a></td>
             <%}%>

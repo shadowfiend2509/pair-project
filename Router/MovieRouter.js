@@ -2,6 +2,7 @@ const Route = require('express').Router();
 const Movie = require('../models').Movie;
 const Category = require('../models').Category;
 const User = require('../models').User;
+const TicketUser = require('../models').TicketUser;
 Route.get('/',(req,res)=>{
     User.findAll()
     .then(User=>{
@@ -78,6 +79,51 @@ Route.get('/buy/:name',(req,res)=>{
                 Movie:movie
             })
         })
+    })
+})
+Route.post('/buy/:name',(req,res)=>{
+    User.findAll()
+    .then(data=>{
+        let pass=0;
+        for(let i=0;i<data.length;i++){
+            if(data[i].loginStatus ==1) pass=1
+        }
+        User.findOne({
+            where : {
+                loginStatus : 1
+            }
+        })
+        .then(user=>{
+            let nameMovie = req.params.name;
+            let seats = req.body.seats;
+            let qty = req.body.qty;
+            Movie.findOne({
+                where :{
+                    name : nameMovie
+                }
+            })
+            .then(movie=>{
+                TicketUser.findAll()
+                .then(ticket=>{
+                    TicketUser.create({
+                        UserId : user.id,
+                        MovieId : movie.id
+                    })
+                    .then(success=>{
+                        res.render('MovieView/successPurchase',{
+                            User :user,
+                            Movie :movie,
+                            qty : qty,
+                            seats : seats,
+                            Pass :pass
+                        })
+                    })
+                })
+            })
+        })
+    })
+    .catch(err=>{
+        res.send(err)
     })
 })
 

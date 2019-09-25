@@ -1,0 +1,27 @@
+.theater {
+    position:relative;
+    display: flex;
+    flex-wrap: wrap;
+    width: 600px;
+    margin-left: -6px;
+    margin-right: -6px;
+    flex-direction: row;
+  }
+  .theater .seat{
+    position:relative;
+    padding:6px;
+    height:30px;
+    flex: 0 0 8%;
+  }
+  
+  
+  .theater .seat .seat-content{
+    width:100%;
+    height:100%;
+    background-color: green;
+  }
+  
+  .theater .seat.taken .seat-content{
+    background-color: red;
+    
+  }

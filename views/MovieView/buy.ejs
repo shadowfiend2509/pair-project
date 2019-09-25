@@ -1,17 +1,108 @@
 <%-include('../../Partial/navBar/header.ejs')%>
-<%=JSON.stringify(Movie)%>
-
-<button id='test'>dsafsaf</button>
-
-
-
-<% let benar = false %>
-
-<button class="<%= benar ? "active": "" %>">Aktif</button>
-<button>Tidak aktif</button>
-
+<!-- <%=JSON.stringify(Movie)%> -->
+<!-- <link href='../../css/style.css' rel='stylesheet'> -->
 <style>
-    button.active {
-        background-color: blue
-    }
+.theater {
+    position:relative;
+    display: flex;
+    flex-wrap: wrap;
+    width: 600px;
+    margin-left: -6px;
+    margin-right: -6px;
+    flex-direction: row;
+  }
+  .theater .seat{
+    position:relative;
+    padding:6px;
+    height:30px;
+    flex: 0 0 8%;
+  }
+  .layar{
+      position: relative;
+      margin : 1% 30%;
+      display:flex;
+      flex-wrap: wrap;
+      background-color: orange;
+      width: 589px;
+      height :5%
+  }
+  
+  .theater .seat .seat-content{
+    width:100%;
+    height:100%;
+    background-color: green;
+  }
+  
+  .theater .seat.taken .seat-content{
+    background-color: red;
+    
+  }
+  .container {
+    position: relative;
+    margin : 1% 30%;
+  }
+  input{
+      font-size: 15px
+  }
+  *{
+      text-align: center
+  }
 </style>
+<div id='main'>
+    <h1><%=Movie.name%></h1>
+</div>
+<div class='layar'>
+    <h4 style="margin:10px 275px; background-color:transparent">LAYAR</h4>
+</div>
+<div class="container">
+<div class="theater">
+    <%for ( let i=0;i<Movie.seats; i++) {%>
+        <div class="seat <%=Movie.name[0]%><%=Movie.name[1]%><%=i+1%>">
+        <div id ='i' class="seat-content" onclick="myFunction('<%=Movie.name[0]%><%=Movie.name[1]%><%=i+1%>')"><%=Movie.name[0]%> <%=Movie.name[1].toUpperCase()%><%=i+1%></div>
+        </div>
+    <%}%>
+</div>
+</div>
+<form method='post' action='/movies/buy/<%=Movie.name%>'>
+    <input type="hidden" name="seats" readonly class="input-seats">
+    <input style='width:25px' type='text' name='qty' readonly class='total'>
+    <label > @ <%=Movie.price%></label>
+    <input style="border-radius: 10px; width:100px; text-align: center;" readonly class='price'>
+    <input type='submit' style='border-radius:10px;'value='BUY NOW'>
+</form>
+
+
+<script>
+    function resetAllSeat(){
+        var seats = document.getElementsByClassName('seat')
+        for(var i = 0; i<seats.length;i++){
+            seats[i].classList.remove('taken')
+        }
+    }
+
+    function setSeats(arrSeats) {
+        for(var i = 0; i<arrSeats.length;i++){
+            var seat = document.getElementsByClassName(arrSeats[i]);
+            seat[0].classList.add('taken')
+        }
+    }
+    var seats = []
+
+function myFunction(value){
+    // document.getElementById('seat').style.backgroundColor = 'red';
+    var seatIndex = seats.indexOf(value)
+    if(seatIndex >= 0 ){
+        seats.splice(seatIndex,1)
+    }
+    else{
+        seats.push(value)
+    }
+    resetAllSeat()
+    setSeats(seats)
+
+    document.getElementsByClassName('input-seats')[0].value = seats.join(',')
+    document.getElementsByClassName('total')[0].value = seats.length
+    document.getElementsByClassName('price')[0].value = seats.length * 55000
+
+}
+</script>
