@@ -4,8 +4,14 @@ module.exports = (sequelize, DataTypes) => {
   const Model = sequelize.Sequelize.Model;
   class User extends Model {}
   User.init({
-    username: DataTypes.STRING,
-    password: DataTypes.STRING,
+    username: {
+      type : DataTypes.STRING,
+      allowNull : false
+    },
+    password: {
+      type : DataTypes.STRING,
+      allowNull : false
+    },
     email: DataTypes.STRING,
     phoneNumber: DataTypes.INTEGER,
     saldo: DataTypes.INTEGER,
@@ -14,11 +20,11 @@ module.exports = (sequelize, DataTypes) => {
   }, {sequelize,modelName:'User',
     hooks : {
       beforeCreate(instance, options){
-        console.log('=========instance========='+JSON.stringify(instance))
+        // console.log('=========instance========='+JSON.stringify(instance))
         const random = String(Math.random()*100000);
         const hashPassword = hash.hashPasword(instance.password,random)
-        console.log('========hash=====',hashPassword)
-        console.log('===salt ===',random)
+        // console.log('========hash=====',hashPassword)
+        // console.log('===salt ===',random)
         instance.password = hashPassword;
         instance.salt = random;
       }

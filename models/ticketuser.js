@@ -4,7 +4,8 @@ module.exports = (sequelize, DataTypes) => {
   class TicketUser extends Model{}
   TicketUser.init({
     UserId: DataTypes.INTEGER,
-    MovieId: DataTypes.INTEGER
+    MovieId: DataTypes.INTEGER,
+    CodeBooking : DataTypes.STRING
   }, {sequelize,modelName:'TicketUser'});
   TicketUser.associate = function(models) {
     // associations can be defined here

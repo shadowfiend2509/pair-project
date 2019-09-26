@@ -1,6 +1,4 @@
 <%-include('../../Partial/navBar/header.ejs')%>
-<!-- <%=JSON.stringify(Movie)%> -->
-<!-- <link href='../../css/style.css' rel='stylesheet'> -->
 <style>
 .theater {
     position:relative;
@@ -58,13 +56,14 @@
 <div class="theater">
     <%for ( let i=0;i<Movie.seats; i++) {%>
         <div class="seat <%=Movie.name[0]%><%=Movie.name[1]%><%=i+1%>">
-        <div id ='i' class="seat-content" onclick="myFunction('<%=Movie.name[0]%><%=Movie.name[1]%><%=i+1%>')"><%=Movie.name[0]%> <%=Movie.name[1].toUpperCase()%><%=i+1%></div>
+        <div id ='i' class="seat-content" onclick="myFunction('<%=Movie.name[0]%><%=Movie.name[1]%><%=i+1%>')"><%=Movie.name[0]%><%=Movie.name[1].toUpperCase()%><%=i+1%></div>
         </div>
     <%}%>
 </div>
 </div>
 <form method='post' action='/movies/buy/<%=Movie.name%>'>
     <input type="hidden" name="seats" readonly class="input-seats">
+    <input type='hidden' name='nameMovie' value="<%=Movie.name%>">
     <input style='width:25px' type='text' name='qty' readonly class='total'>
     <label > @ <%=Movie.price%></label>
     <input style="border-radius: 10px; width:100px; text-align: center;" readonly class='price'>

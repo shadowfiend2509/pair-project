@@ -1,11 +1,5 @@
 <%-include('../../Partial/navBar/header.ejs')%>
 <% let totalPrice = qty * Movie.price %>
-<%let hasil = Movie.name.slice(0,2)+''%>
-    <%for( let i=0; i<5; i++){%>
-        <%let kata = 'r32rh3ipj3if0fh9heqji9jer032523t22';%>
-        <%let random = Math.round(Math.random() * kata.length);%>
-        <%hasil+= kata[random]%>
-<%}%>
 <div>
     <h1>Purchase Successfully</h1>
     <h3>
@@ -13,7 +7,7 @@
         Quantity :<%=qty%><br>
         Total Price : <%=totalPrice%><br>
         Seats : <%=seats%><br>
-        Code Booking : <%=hasil%>
+        Code Booking : <%=Code%>
     </h3>
 
 </div>

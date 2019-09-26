@@ -6,41 +6,58 @@
     <title>Home</title>
     <style>
     *{
-        background-color: dimgray;
+        background-color: #303030;
+    }
+    header{
+        height: 10vh;
+        z-index: 10;
+        width: 99%;
+        margin: 0 auto;
+        display: flex;
+        background-color: #303030;
+        flex-direction: row;
+        justify-content: space-between;
+        box-shadow: 0 2px 4px #ffdd03;
+    }
+    header li{
+        display: inline-block;
+        height: 3vh;
+        margin: 3.5vh 30px;
+    }
+    header li:last-child{
+        margin-right: 100px;
+    }
+    header a:hover{
+        color:white;
+    }
+    .logo p{
+        font-size:32px;
+        margin: 3vh 100px;
+        color: #ffdd03;
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        letter-spacing: 2px;
+    }
+    ul{
+        height:10px
     }
     a{
-        color : gold;
-    }
-    a:hover{
-        color : red;
-    }
-    li{
-        position: relative;
-        display: inline-block;
-    }
-    #head{
-        padding:10px;
-        display: flex;
-        flex-direction: row
-    }
-    #c{
-        margin:-30px 5px;
-        font-size: 90px;
-        font-family: monospace
+        color:gold
     }
     </style>
 </head>
 <body>
-    <header>
-            <div id="head">
-                    <h1 id='c'>C</h1><h2 style='font-family:fantasy'>inemaEDA</h2>
-                    <ul>
-                        <li><a href='/'>Home</a></li>
-                        <%if(Pass==0){%>
-                            <li><a href='/users/login'>Login</a></li>
-                        <%}else{%>
-                            <li><a href='/users/logout'>Logout</a></li>
-                        <%}%>
-                    </ul>
-            </div>
-    </header>
+<header id="header" class="headers">
+    <div class="logo">
+        <p class="logo-text">Cinema EA</p>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <%if(Pass==0){%>
+                <li><a href="/users/login">Login</a></li>
+            <%}else {%>
+                <li><a href="/users/logout">Logout</a></li> 
+            <%}%>
+        </ul>
+    </nav>
+</header>
