@@ -1,0 +1,88 @@
+<%-include('../../Partial/navBar/header.ejs')%>
+<head>
+        <style>
+        .card {
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+          max-width: 200px;
+          max-height: 600px;
+          margin: auto;
+          text-align: center;
+          font-family: arial;
+          font-size: 15px;
+          padding : 50px 70px;
+        }
+        
+        .title {
+          color: grey;
+          font-size: 18px;
+        }
+        
+        button {
+          border: none;
+          outline: 0;
+          display: block;
+          color: white;
+          background-color: #b29137;
+          text-align: center;
+          cursor: pointer;
+          width: 100%;
+          font-size: 18px;
+          padding: 15px;
+        }
+        
+        a {
+          text-decoration: none;
+          font-size: 22px;
+          color: black;
+        }
+
+        input[type=text], input[type=password], input[type=number], input[type=email] {
+  
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+      
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        
+        
+        </style>
+        
+  
+        
+        <body>
+        
+        <h2 style="text-align:center; margin-bottom: 50px; color:#b29137"> <br> REGISTRATION </h2>
+        
+        <div class="card">
+         
+     
+          <div>
+                <form method='post' action='/users/register'>
+                    <label>User Name</label> <input type='text' name='username' placeholder="username"><br>
+                    <label>Password</label> <input type='password' name='password' placeholder="password"><br>
+                    <label>Confirm Password</label> <input type='password' name='confirmPassword' placeholder="confirm password"><br>
+                    <label>Phone Number</label> <input type="number" name='phoneNumber' placeholder="08xxxxxxx"><br>
+                    <label>Email</label> <input type="email" name="email" placeholder="username@example.id"><br><br>
+                    <button type='submit' value='Register' style=> Register </button>
+                </form>
+
+            
+              </h3>
+          
+          </div>
+        </div>
+
+
+<div>
+   
+</div>
+
+<%-include('../../Partial/navBar/footer.ejs')%>

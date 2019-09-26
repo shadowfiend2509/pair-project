@@ -1,0 +1,87 @@
+<html>
+<head>
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 200px;
+  max-height: 600px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+  font-size: 15px;
+  padding : 50px 70px;
+}
+
+.title {
+  color: grey;
+  font-size: 18px;
+}
+
+button {
+  border: none;
+  outline: 0;
+  display: block;
+  color: white;
+  background-color: #b29137;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+
+</style>
+
+<%-include('../../Partial/navBar/header.ejs')%>
+
+<body>
+
+<h2 style="text-align:center; margin-bottom: 50px; color:#b29137"> <br> TICKET PURCHASE SUCCESS </h2>
+
+<div class="card">
+ 
+  <% let totalPrice = qty * Movie.price %>
+  <%let hasil = Movie.name.slice(0,2)+''%>
+      <%for( let i=0; i<5; i++){%>
+          <%let kata = 'r32rh3ipj3if0fh9heqji9jer032523t22';%>
+          <%let random = Math.round(Math.random() * kata.length);%>
+          <%hasil+= kata[random]%>
+  <%}%>
+  <div>
+      
+          <h3> Name : </h3><%=Movie.name%><br>
+          <br>
+          <hr style="border: 1px dashed grey;" />
+          <h3>Quantity : </h3><%=qty%><br>
+          <br>
+          <hr style="border: 1px dashed grey;" />
+          <h3>Total Price : </h3><%=totalPrice%><br>
+          <br>
+          <hr style="border: 1px dashed grey;" />
+          <h3>Seats : </h3><%=seats%><br>
+          <br>
+          
+          <button>
+                <br>Code Booking<br>
+                <h2><%=hasil%></h2>
+                <br>
+          </button>
+      </h3>
+  
+  </div>
+</div>
+
+</body>
+</html>
+
+
+<%-include('../../Partial/navBar/footer.ejs')%>
+
+
+

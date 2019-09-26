@@ -1,0 +1,136 @@
+<%-include('../../Partial/navBar/header.ejs')%>
+<style>
+
+    
+    .container {
+        position: relative;
+        width: 100%;
+    
+        }
+
+        .image {
+        display: block;
+        width: 100%;
+        height: auto;
+        }
+
+        .overlay {
+        margin-top: 35px;
+        position: absolute;
+        top: 0px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+        transition: .5s ease;
+        }
+
+        .container:hover .overlay {
+        opacity: 1;
+        }
+
+    
+        .btn-group button {
+      
+       
+          position: relative;
+          background-color: #282828; 
+          border: 0.5px solid #282828; 
+          padding: 10px 100px; /* Some padding */
+          cursor: pointer; /* Pointer/hand icon */
+          float: left;
+    /* Float the buttons side by side */
+        }
+        
+        /* Clear floats (clearfix hack) */
+        .btn-group:after {
+          content: "";
+          clear: both;
+          display: table;
+        }
+        
+        .btn-group button:not(:last-child) {
+          border-right: none; /* Prevent double borders */
+        }
+        
+        /* Add a background color on hover */
+        .btn-group button:hover {
+          background-color: #b29137;
+        }
+        
+</style>
+
+<table style = 'width:100%' >
+    <body style = 'background-color: #282828; border: 1px solid #3c3c3c; '>
+        <div class="btn-group">
+                <div class="btn-group">
+                        <%Data.forEach(Movie=>{%>
+                            
+                            <%if(Movie.name=='Action'){%>
+                                <div class="container">
+                                    <button><a href='/movies/category/<%=Movie.id%>' style='color:#767676; text-decoration: none'>Action</a></button>
+                                <div class="overlay">
+                                    <img src="/action.jpg" alt="Avatar" class="image">
+                                </div>
+                            </div>
+
+                            <%}else if(Movie.name=='Romance') {%>
+
+                                <div class="container">
+                                    <button><a href='/movies/category/<%=Movie.id%>' style='color:#767676; text-decoration: none''>Romance</a></button>
+                                <div class="overlay">
+                                    <img src="/romance.jpg" alt="Avatar" class="image">
+                                </div>
+                            </div>
+                            
+                            <%}else if(Movie.name=='Horror') {%>
+
+                            <div class="container">
+                                    <button><a href='/movies/category/<%=Movie.id%>' style='color:#767676; text-decoration: none''>Horror</a></button>
+                                <div class="overlay">
+                                    <img src="/horor.jpg" alt="Avatar" class="image">
+                                </div>
+                            </div>
+
+                                <%}else if(Movie.name=='Comedy') {%>
+
+                            <div class="container">
+                                    <button><a href='/movies/category/<%=Movie.id%>' style='color:#767676; text-decoration: none''>Comedy</a></button>
+                                <div class="overlay">
+                                    <img src="/comedy.jpg" alt="Avatar" class="image">
+                                </div>
+                            </div>
+                            
+                                <%}else if(Movie.name=='Thriller') {%>
+                            <div class="container">
+                                    
+                                <button><a href='/movies/category/<%=Movie.id%>' style='color:#767676; text-decoration: none''>Thriller</a></button>
+                                <div class="overlay">
+                                    <img src="/thriller.jpg" alt="Avatar" class="image">
+                                </div>
+                            </div>
+                            
+                            
+                                <%}else if(Movie.name=='18+') {%>
+                            <div class="container">
+                                <button><a href='/movies/category/<%=Movie.id%>' style='color:#767676; text-decoration: none''>18+</a></button>
+                                <div class="overlay">
+                                    <img src="/18+.jpg" alt="Avatar" class="image">
+                            </div>
+                            
+                            </div>
+                            
+                            <%}%>
+                        <%})%>
+                        <img src="/promo.jpg" alt="Avatar" class="image">
+                </div>
+            </body>
+         </tr>
+    </div>
+</body>
+</table>
+    
+
+<%-include('../../Partial/navBar/footer.ejs')%>
