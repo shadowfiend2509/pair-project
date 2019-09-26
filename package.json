@@ -12,9 +12,18 @@
   "dependencies": {
     "ejs": "^2.7.1",
     "express": "^4.17.1",
+    "nodemon": "^1.19.2",
     "pg": "^7.12.1",
     "pg-hstore": "^2.3.3",
     "sequelize": "^5.19.0",
     "sequelize-cli": "^5.5.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shadowfiend2509/pair-project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shadowfiend2509/pair-project/issues"
+  },
+  "homepage": "https://github.com/shadowfiend2509/pair-project#readme"
 }

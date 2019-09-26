@@ -1,0 +1,343 @@
+
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    color : white;
+    text-decoration: none;
+    padding:0;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration: none;
+    padding: 75px 75px;
+    letter-spacing: 2px;
+    font-size: 12px;
+    font-weight: 50;
+}
+
+.opening {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 250px;
+}
+
+header{
+    background-image: url(header1.jpg);
+    background-size: cover;
+    background-position: bottom center;
+    height: 800px;
+    font-family : Georgia, 'Times New Roman', Times, serif;
+}
+
+.title h1 {
+    position: absolute;
+    top:385px;
+    text-align: center;
+    font-family: Georgia;
+    font-style: italic;
+    color:white;
+    font-size: 2em;
+    font-weight:100;
+    width: 100%;
+    letter-spacing: 5px;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.title p{
+    position: absolute;
+    top:480px;
+    text-align: center;
+    font-family: Georgia;
+    font-style: italic;
+    color:white;
+    font-size: 15px;
+    font-weight:0;
+    width: 100%;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.5);  
+}
+/* border */
+hr.hr1 { 
+    display: block;
+    color: white;
+    margin-top: 210px;
+    margin-bottom: 0.5em;
+    margin-left: 47%;
+    margin-right: 47%;
+    border-style: inset;
+    border-width: 1px;
+  } 
+
+  hr.hr2 { 
+    display: block;
+    color: white;
+    margin-bottom: 0.5em;
+    margin-left: 47%;
+    margin-right: 47%;
+    border-style: inset;
+    border-width: 1px;
+  }  
+
+  hr.hr3 { 
+    display: block;
+    color: white;
+    margin-top: 200px;
+    margin-bottom: 100px;
+    margin-left: 47%;
+    margin-right: 47%;
+    border-style: inset;
+    border-width: 1px;
+  } 
+
+/* border */
+  .parallax {
+    background-image: url("paralax1.jpg");
+    min-height: 300px; 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    display: relative;
+
+  }
+.parallax p{
+    color:white;
+    font-size:15px;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 100;
+    margin-right: 25%;
+    margin-left: 25%;
+    padding-top: 100px;
+
+}
+  .button {
+    background-color:#9a7e32;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    margin-bottom: 5%;
+  }
+
+  .quotes1{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: black;
+    height: 100px;
+    display: relative;
+    text-align: center;
+    height:100px;
+    margin-top: 100px;
+    margin-bottom:100px;
+}
+
+.portofolio{
+  align-items: center;
+  display: flex;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+
+div.container img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  text-align: center;
+}
+
+.container {
+  position: relative;
+  width: 300px;
+  height: auto;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 98%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #9a7e32;
+}
+
+.container:hover .overlay {
+  opacity: 0.5;
+}
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+
+.quotes2 {
+  float: left;
+  width: 40%;
+  height: 300px;
+  padding: 5%;
+  justify-content: center;
+  top: 50%;
+}
+
+.quotes2 h1{
+  text-align: center;
+  line-height: 90%;
+}
+
+.quotes2 h5{
+  text-align: center;
+  font-weight: lighter;
+  padding-left: 30px;
+  padding-right: 30px;
+  line-height: 150%;
+}
+
+.terakhir {
+  width: 100%;
+  height: 300px;
+}
+
+/* comment section */
+
+
+.hubungi {
+float: right;
+width:40%;
+padding: 5%;
+height: 300px;
+}
+
+input[type=text], select, textarea {
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  resize: vertical;
+  float:left;
+  height:150%;
+  width: 300%;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: #9a7e32;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  float: right;
+  margin-top:15px;
+}
+
+input[type=submit]:hover {
+  background-color:  #7b5f13;
+}
+
+.hubungi {
+  border-radius: 5px;
+  
+}
+
+.col-25 {
+  float: left;
+  width: 20%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 25%;
+  height: 100%;
+  margin-top: 6px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media screen and (max-width: 500px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 150%;
+    margin-top: 0;
+  }
+}
+
+hr .hr3 { 
+  display: block;
+  color: black;
+  margin-left: 47%;
+  margin-right: 47%;
+  border-style: inset;
+  border-width: 10px;
+}
+
+
+
+.footer {
+  height: 100px;
+  text-align: center;
+}
+
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 20px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+
+
+.fa:hover {
+  opacity: 0.7;
+}
+
+.fa-facebook {
+background: #3B5998;
+color: white;
+}
+
+.fa-twitter {
+background: #55ACEE;
+color: white;
+}
+
+.fa-instagram {
+background: #125688;
+color: white;
+}

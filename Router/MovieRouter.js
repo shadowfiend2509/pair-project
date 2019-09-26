@@ -3,6 +3,8 @@ const Movie = require('../models').Movie;
 const Category = require('../models').Category;
 const User = require('../models').User;
 const TicketUser = require('../models').TicketUser;
+// Route.use( express.static( "public" ));
+
 Route.get('/',(req,res)=>{
     User.findAll()
     .then(User=>{

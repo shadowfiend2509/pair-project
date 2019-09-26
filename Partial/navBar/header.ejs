@@ -4,43 +4,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Home</title>
-    <style>
-    *{
-        background-color: dimgray;
-    }
-    a{
-        color : gold;
-    }
-    a:hover{
-        color : red;
-    }
-    li{
-        position: relative;
-        display: inline-block;
-    }
-    #head{
-        padding:10px;
-        display: flex;
-        flex-direction: row
-    }
-    #c{
-        margin:-30px 5px;
-        font-size: 90px;
-        font-family: monospace
-    }
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <style>
+            ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0px 25px;
+                overflow: hidden;
+                background-color: #333;
+                height: 75px
+            }
+            
+            li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 25px 25px;
+                text-decoration: none;
+                height: 75px
+            }
+            
+            li a:hover {
+                background-color: #111;
+            }
+
+        </style>
+    </head>
+    <body>
+        
+    <ul>
+      <a href="/movies" ><img src="/logo.png" alt="logo" style="float: left; padding-top: 10px; margin-right: 20px"></a>
+      <li><a href="/movies" style="float: left" >All Movies</a></li>
+      <li><a href="/movies/category" style="float: left" >Find by Category</a></li>
+      
+
+   
+      <%if(Pass==0){%>
+        <li>  <a href='/users/login' style="float: right;">Login</a></li>
+      <%}else{%>
+        <li> <a href='/users/logout' style="float: right;">Logout</a></li>
+          <%}%>
+    
+    </li>
+      </div>
+      
+    </ul>
+    </body>
+    </html>
+    
     </style>
 </head>
 <body>
-    <header>
-            <div id="head">
-                    <h1 id='c'>C</h1><h2 style='font-family:fantasy'>inemaEDA</h2>
-                    <ul>
-                        <li><a href='/'>Home</a></li>
-                        <%if(Pass==0){%>
-                            <li><a href='/users/login'>Login</a></li>
-                        <%}else{%>
-                            <li><a href='/users/logout'>Logout</a></li>
-                        <%}%>
-                    </ul>
-            </div>
-    </header>
