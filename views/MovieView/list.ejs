@@ -1,21 +1,117 @@
 <%-include('../../Partial/navBar/header.ejs')%>
-<%-include('../../Partial/Categories/category.ejs')%>
-<table style='width:100%'>
-    <tr style=" font-size: 30px">
-        <td>Name Movies</td>
-        <td>Price</td>
-        <td>Seats</td>
-        <td>Option</td>
-    </tr>
-    <% Data.forEach(Movie=> {%>
-        <tr style='font-size:20px'>
-            <td><%=Movie.name%></td>
-            <td><%=Movie.price%></td>
-            <td><%=Movie.seats%></td>
-            <%if(Pass==1){%>
-                <td><a href='/movies/buy/<%=Movie.name%>' style='font-size:20px'>Buy</a></td>
-            <%}else{%>
-                <td><a href='/users/login'>Buy</a></td>
-            <%}%>
-        </tr>
-    <%})%>
+    <style>
+
+        * {
+            }
+
+        body {
+            background-color: #f1f1f1;
+            padding: 10px;
+            font-family: Arial;
+        }
+
+        /* Center website */
+        .main {
+            max-width: 1300px;
+            margin: auto;
+        }
+
+        h1 {
+            font-size: 50px;
+            word-break: break-all;
+        }
+
+        .row {
+            margin: 8px;
+        }
+
+        /* Add padding BETWEEN each column */
+        .row,
+        .row > .column {
+            padding: 8px;
+        }
+
+        /* Create four equal columns that floats next to each other */
+        .column {
+            float: left;
+            width: 23%;
+            padding: 25px;
+        }
+
+        /* Clear floats after rows */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Content */
+        .content {
+            background-color: white;
+            padding: 20px;
+            height: 700px;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .container img {
+            width: 100%;
+            height: auto;
+        }
+
+        .container .btn {
+            position: absolute;
+            top: 75%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            background-color: #b29137;
+            color: white;
+            font-size: 16px;
+            padding: 12px 24px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .container .btn:hover {
+            background-color: black;
+        }
+    </style>
+
+    <head>
+      <img src='header1.jpg' alt='header'>
+    </head>
+
+    <body>
+        <div class="main">
+            <div class="row">
+                <%for(let i=0;i<Data.length;i++) {%>
+                    <div class="column">
+                        <div class="content">
+                            <img src="<%=Data[i].name%>.jpg" alt="Mountains" style="width:100%" ;=";">
+                            <h3 style="text-align: center"><%=Data[i].name%></h3>
+                            <p style="text-align: center ; padding:10px"><%=Data[i].description%></p>
+                            <div class="container">
+                <%if(Pass==1){%>
+
+                                <a href='/movies/buy/<%=Data[i].name%>'><button class="btn">Buy Ticket</button></a>
+                                <%}else{%>
+                                  <a href='/users/login'><button class="btn">Buy</button></a>
+                                  <%}%>
+
+                            </div>
+                        </div>
+                    </div>
+                <%}%>
+            </div>
+
+        </div>
+
+    </body>

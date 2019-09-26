@@ -4,60 +4,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Home</title>
-    <style>
-    *{
-        background-color: #303030;
-    }
-    header{
-        height: 10vh;
-        z-index: 10;
-        width: 99%;
-        margin: 0 auto;
-        display: flex;
-        background-color: #303030;
-        flex-direction: row;
-        justify-content: space-between;
-        box-shadow: 0 2px 4px #ffdd03;
-    }
-    header li{
-        display: inline-block;
-        height: 3vh;
-        margin: 3.5vh 30px;
-    }
-    header li:last-child{
-        margin-right: 100px;
-    }
-    header a:hover{
-        color:white;
-    }
-    .logo p{
-        font-size:32px;
-        margin: 3vh 100px;
-        color: #ffdd03;
-        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        letter-spacing: 2px;
-    }
-    ul{
-        height:10px
-    }
-    a{
-        color:gold
-    }
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <style>
+            ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0px 25px;
+                overflow: hidden;
+                background-color: #333;
+                height: 75px
+            }
+            
+            li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 25px 25px;
+                text-decoration: none;
+                height: 75px
+            }
+            
+            li a:hover {
+                background-color: #111;
+            }
+
+        </style>
+    </head>
+    <body>
+        
+    <ul>
+      <a href="/movies" ><img src="/logo.png" alt="logo" style="float: left; padding-top: 10px; margin-right: 20px"></a>
+      <li><a href="/movies" style="float: left" >All Movies</a></li>
+      <li><a href="/movies/category" style="float: left" >Find by Category</a></li>
+      
+
+   
+      <%if(Pass==0){%>
+        <li>  <a href='/users/login' style="float: right;">Login</a></li>
+      <%}else{%>
+        <li> <a href='/users/logout' style="float: right;">Logout</a></li>
+          <%}%>
+    
+    </li>
+      </div>
+      
+    </ul>
+    </body>
+    </html>
+    
     </style>
 </head>
 <body>
-<header id="header" class="headers">
-    <div class="logo">
-        <p class="logo-text">Cinema EA</p>
-    </div>
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <%if(Pass==0){%>
-                <li><a href="/users/login">Login</a></li>
-            <%}else {%>
-                <li><a href="/users/logout">Logout</a></li> 
-            <%}%>
-        </ul>
-    </nav>
-</header>

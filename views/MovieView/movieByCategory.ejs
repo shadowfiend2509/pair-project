@@ -1,26 +1,113 @@
 <%-include('../../Partial/navBar/header.ejs')%>
-<div style = 'text-align: center;font-size: 45px;font-family: cursive; margin :20px 0px;'>
-    <%=Category.name%>
-</div>
-<table style='width:80%;font-size: 20px'>
-        <td><a href='/movies/category'>Back</a></td>
-    <tr>
-        <td>Movie Name</td>
-        <td>Price</td>
-        <td>Seat</td>
-        <td>Option</td>
-    </tr>
-    <%Category.Movies.forEach(Movie=>{%>
-        <tr>
-            <td><%=Movie.name%></td>
-            <td><%=Movie.price%></td>
-            <td><%=Movie.seats%></td>
-            <%if(Pass==1){%>
-                <td><a href='/movies/buy/<%=Movie.name%>'>Buy</a></td>
-            <%}else{%>
-                <td><a href='/users/login'>Buy</a></td>
+    <style>
+
+        * {}
+
+        body {
+            background-color: #f1f1f1;
+            padding: 10px;
+            font-family: Arial;
+        }
+
+        /* Center website */
+        .main {
+            max-width: 1300px;
+            margin: auto;
+        }
+
+        h1 {
+            font-size: 50px;
+            word-break: break-all;
+        }
+
+        .row {
+            margin: 8px;
+        }
+
+        /* Add padding BETWEEN each column */
+        .row,
+        .row > .column {
+            padding: 8px;
+        }
+
+        /* Create four equal columns that floats next to each other */
+        .column {
+            float: left;
+            width: 23%;
+            padding: 25px;
+        }
+
+        /* Clear floats after rows */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Content */
+        .content {
+            background-color: white;
+            padding: 20px;
+            height: 700px;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .container img {
+            width: 100%;
+            height: auto;
+        }
+
+        .container .btn {
+            position: absolute;
+            top: 75%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            background-color: #b29137;
+            color: white;
+            font-size: 16px;
+            padding: 12px 24px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .container .btn:hover {
+            background-color: black;
+        }
+    </style>
+    <div style='text-align: center;font-size: 45px;font-family: cursive'>
+    </div>
+
+    <div class="main">
+        <div class="row">
+            <%for(let i=0;i<Category.Movies.length;i++) {%>
+                <div class="column">
+                    <div class="content">
+                        <img
+                            src='/<%=Category.Movies[i].name%>.jpg'
+                            alt="Mountains"
+                            style="width:100%"
+                            ;=";">
+                        <h3 style="text-align: center"><%=Category.Movies[i].name%></h3>
+                        <p style="text-align: center ; padding:10px"><%=Category.Movies[i].description%></p>
+                        <div class="container">
+
+                            <a href='/movies/buy/<%=Category.Movies[i].name%>'>
+                                <button class="btn">Buy Ticket</button>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
             <%}%>
-        </tr>
-    <%})%>
-</table>
-    
+        </div>
+
+    </div>

@@ -5,7 +5,8 @@ module.exports = (sequelize, DataTypes) => {
   Movie.init({
     name: DataTypes.STRING,
     price: DataTypes.INTEGER,
-    seats: DataTypes.INTEGER
+    seats: DataTypes.INTEGER,
+    description : DataTypes.STRING
   }, {sequelize,modelName:'Movie'});
   Movie.associate = function(models) {
     // associations can be defined here
