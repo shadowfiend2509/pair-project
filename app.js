@@ -21,12 +21,15 @@ app.use(session({
 app.listen(PORT,()=> console.log(`Linstening on PORT ${PORT}`));
 
 app.get('/',(req,res)=>{
+    let employee = 0;
+    if(req.session.employee) employee=1
     Userr.findAll()
     .then(user=>{
         let pass=0;
         if(req.session.name) pass=1
         res.render('index',{
-            Pass:pass
+            Pass:pass,
+            employee : employee
         })
     })
 })

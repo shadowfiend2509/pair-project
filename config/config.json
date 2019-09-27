@@ -5,5 +5,12 @@
     "database": "CinemaEDA-PairProject",
     "host": "127.0.0.1",
     "dialect": "postgres"
+  },
+  "production" : {
+    "username" : "wdgkmffpyuzric",
+    "password" : "6bba703b30ad6b6bacedf35e8b17988809c456e55793638e27a328387bde21fa",
+    "database" : "df731oq7i749lb",
+    "host" : "ec2-174-129-29-101.compute-1.amazonaws.com",
+    "dialect" : "postgres"
   }
 }
