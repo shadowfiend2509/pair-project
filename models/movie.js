@@ -7,7 +7,12 @@ module.exports = (sequelize, DataTypes) => {
     price: DataTypes.INTEGER,
     seats: DataTypes.INTEGER,
     description : DataTypes.STRING
-  }, {sequelize,modelName:'Movie'});
+  }, {sequelize,modelName:'Movie',
+  hooks : {
+    beforeCreate(instance,option){
+      instance.price=55000;
+    }
+  }});
   Movie.associate = function(models) {
     // associations can be defined here
     Movie.belongsToMany(models.Category,{through : models.MovieCategory})

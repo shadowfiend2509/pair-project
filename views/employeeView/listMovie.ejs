@@ -1,0 +1,15 @@
+<%-include('../../Partial/navBar/header.ejs')%>
+<style>
+*{
+    text-align: center;
+}
+</style>
+<table>
+    <%for(let i=0;i<Data.length;i++){%>
+        <tr>
+            <td><%=Data[i].name%></td>
+            <td><%=Data[i].price%></td>
+            <td><%=Data[i].seats%></td>
+        </tr>
+    <%}%>
+</table>

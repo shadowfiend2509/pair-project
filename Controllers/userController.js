@@ -7,11 +7,12 @@ class UserController {
         User.findAll()
         .then(user=>{
             let pass=0;
-            for(let i=0;i<user.length;i++){
-                if(user[i].loginStatus==1) pass=1
-            }
+            let employee = 0;
+            if(req.session.employee) employee=1
+            if(req.session.name) pass=1
             res.render('userView/register',{
-                Pass:pass
+                Pass:pass,
+                employee:employee
             })
         })
     }
@@ -21,7 +22,6 @@ class UserController {
                 password : req.body.password,
                 email : req.body.email,
                 phoneNumber : Number(req.body.phoneNumber),
-                saldo : 0,
                 salt : req.body.salt,
                 loginStatus : 1,
                 createdAt : new Date(),
@@ -32,21 +32,26 @@ class UserController {
             })
     }
     static getLogin (req,res){
+        let pass=0;
+        let employee = 0;
+        if(req.session.employee) pass=1
         User.findAll()
         .then(user=>{
-            let pass=0;
-            for(let i=0;i<user.lenght; i++ ){
-                if(user[i].loginStatus == 1) pass=1;
-            }
+            if(req.session.name) pass=1;
             res.render('userView/login',{
-                Pass:pass
+                Pass:pass,
+                employee:employee
             })
         })
         .catch(err=>{
-            res.send(err)
+            res.send(err);
         })
     }
     static postLogin(req,res){
+        let pass = 0;
+        let employee = 0;
+        if(req.session.employee) pass=1
+        if(req.body.session) pass=1
         User.findOne({
             where :{
                 username :req.body.username
@@ -57,39 +62,20 @@ class UserController {
                 req.session.name = {
                     username : data.username
                 }
-                // data.update({
-                //     loginStatus : 1
-                // },{where:{id:data.id}})
-                // .then(()=>{
-                // })
-                res.redirect('/movies/category')
-                // res.redirect('/movies')
-            }else throw new Error()
+                res.redirect('/movies')
+            }else res.send('username/password salah')
         })
         .catch(err=>{
-            res.redirect('/users/login')
+            res.render('userView/login',{
+                Pass:pass,
+                employee:employee
+            })
         })
     }
     static getLogout(req,res){
         req.session.destroy(()=>{
             res.redirect('/')
         })
-        // User.findOne({
-        //     where : {
-        //         loginStatus:1
-        //     }
-        // })
-        // .then(user=>{
-        //     return User.update({
-        //         loginStatus : 0
-        //     },{returning :true,where:{id:user.id}})
-        // })
-        // .then(scc=>{
-        //     res.redirect('/')
-        // })
-        // .catch(err=>{
-        //     res.send(err);
-        // })
     }
 }
 

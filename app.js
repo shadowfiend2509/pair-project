@@ -5,6 +5,7 @@ const Userr = require('./models').User;
 const Movie = require('./Router/MovieRouter');
 const User = require('./Router/UserRouter');
 const session = require('express-session');
+const Employee = require('./Router/EmployeeRouter');
 
 app.set('view engine', 'ejs');
 app.use( express.static( "public" ) );
@@ -23,26 +24,13 @@ app.get('/',(req,res)=>{
     Userr.findAll()
     .then(user=>{
         let pass=0;
-        for(let i=0;i<user.length;i++){
-            if(user[i].loginStatus==1) pass=1
-        }
+        if(req.session.name) pass=1
         res.render('index',{
             Pass:pass
         })
     })
 })
-// app.get('/',(req,res)=>{
-//     Userr.findAll()
-//     .then(user=>{
-//         let pass=0;
-//         for(let i=0;i<user.length;i++){
-//             if(user[i].loginStatus==1) pass=1
-//         }
-//         res.render('MovieView/test',{
-//             Pass:pass
-//         })
-//     })
-// })
 app.use('/movies',Movie);
 app.use('/users',User);
+app.use('/employees',Employee);
 

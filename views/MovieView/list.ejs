@@ -1,8 +1,7 @@
 <%-include('../../Partial/navBar/header.ejs')%>
     <style>
 
-        * {
-            }
+        * {}
 
         body {
             background-color: #f1f1f1;
@@ -86,7 +85,7 @@
     </style>
 
     <head>
-      <img src='header1.jpg' alt='header'>
+        <img src='header1.jpg' alt='header'>
     </head>
 
     <body>
@@ -99,12 +98,16 @@
                             <h3 style="text-align: center"><%=Data[i].name%></h3>
                             <p style="text-align: center ; padding:10px"><%=Data[i].description%></p>
                             <div class="container">
-                <%if(Pass==1){%>
+                                <%if(Pass==1){%>
 
-                                <a href='/movies/buy/<%=Data[i].name%>'><button class="btn">Buy Ticket</button></a>
+                                    <a href='/movies/buy/<%=Data[i].name%>'>
+                                        <button class="btn">Buy Ticket</button>
+                                    </a>
                                 <%}else{%>
-                                  <a href='/users/login'><button class="btn">Buy</button></a>
-                                  <%}%>
+                                    <a href='/users/login'>
+                                        <button class="btn">Buy</button>
+                                    </a>
+                                <%}%>
 
                             </div>
                         </div>

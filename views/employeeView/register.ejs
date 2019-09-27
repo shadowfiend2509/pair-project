@@ -1,0 +1,12 @@
+<%-include('../../Partial/navBar/header.ejs')%>
+<form method = 'post' action='/employees/register'>
+    <label>username</label> <input type='text' name='username' placeholder="username">
+    <label>password</label> <input type='password' name='password' placeholder="password">
+    <label>Role</label> 
+    <select name='role'>
+        <option value = 'admin' name='admin'>Admin</option>
+        <option value='officeboy' name='ob'>Office Boy</option>
+        <option value='satpam' name='satpam'>Satpam</option>
+    </select>
+    <input type='submit' value='register'>
+</form>

@@ -1,9 +1,77 @@
 <%-include('../../Partial/navBar/header.ejs')%>
+<head>
+        <style>
+        .card {
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+          max-width: 200px;
+          max-height: 600px;
+          margin: auto;
+          text-align: center;
+          font-family: arial;
+          font-size: 15px;
+          padding : 50px 70px;
+        }
+        
+        .title {
+          color: grey;
+          font-size: 18px;
+        }
+        
+    
+        
+        a {
+          text-decoration: none;
+          font-size: 22px;
+          color: black;
+        }
+
+        input[type=text], input[type=password], input[type=number], input[type=email] {
+  
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        button {
+            font-size: 15px;
+            background-color: #b29137;
+            color: white;
+            padding: 0px 5px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 50%;
+            height : auto;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        
+        
+    </style>
+        
+  
+<body>
+
+        <h2 style="text-align:center; margin-bottom: 50px; color:#b29137"> <br> REGISTRATION </h2>
+        
+        <div class="card">
+            
+
 <div>
     <form method='post' action='/users/login'>
         <label>User Name </label><input type="text" placeholder="username" name="username"><br>
         <label>Password </label><input type='password' placeholder="password" name='password'><br>
-        <input type='submit' value='Login'><br>
-        Belum punya akun? -> <a href='/users/register'>Click disini</a> untuk Register<br>
+        <input type='submit' value='Login'><br><br>
+        Belum punya akun?<br><br>
+        
+        <a href='/users/register'>Click disini</a> <br><br>untuk Register<br>
+        <!-- Lupa Password? -> <a href=''>Click disini</a> -->
     </form>
 </div>
+
+</body>

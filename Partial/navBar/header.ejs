@@ -46,6 +46,14 @@
       <%}else{%>
         <li> <a href='/users/logout' style="float: right;">Logout</a></li>
           <%}%>
+          <%if(employee==0){%>
+            <li> <a href='/employees/login' style='float: right;'>Add Movie</a></li>
+          <%}else if(employee==1){%>
+            <li> <a href='/employees/addMovie' style='float: right;'>Add Movie</a></li>
+            <li><a href='/employees/logout' style='float:right;'>Logout</a></li>
+          <%}else{%>
+            <li><a href='/employees/logout' style='float:right;'>Logout</a></li>            
+          <%}%>
     
     </li>
       </div>

@@ -1,0 +1,10 @@
+<%-include('../../Partial/navBar/header.ejs')%>
+<div style ='margin:10% 35%; font-size: 30px;'>
+    <form method = 'post' action='/employees/addMovie'>
+        <label>Movie Name</label> <input type='text' name='movieName' placeholder="Movie Name"><br>
+
+        <label>Max Seats</label> <input type='number' name='seats' placeholder="Max Seats"><br>
+        <label>Description</label> <input type='text' name='description' placeholder="description"><br>
+        <input type='submit' value='AddMovie'>
+    </form>
+</div>

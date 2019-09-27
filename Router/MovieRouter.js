@@ -1,8 +1,4 @@
 const Route = require('express').Router();
-// const Movie = require('../models').Movie;
-// const Category = require('../models').Category;
-// const User = require('../models').User;
-// const TicketUser = require('../models').TicketUser;
 const MovieController = require('../Controllers/movieController');
 const middleware = (req,res,next) => {
     if(req.session.name){

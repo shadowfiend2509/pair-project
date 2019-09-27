@@ -20,13 +20,11 @@ module.exports = (sequelize, DataTypes) => {
   }, {sequelize,modelName:'User',
     hooks : {
       beforeCreate(instance, options){
-        // console.log('=========instance========='+JSON.stringify(instance))
         const random = String(Math.random()*100000);
         const hashPassword = hash.hashPasword(instance.password,random)
-        // console.log('========hash=====',hashPassword)
-        // console.log('===salt ===',random)
         instance.password = hashPassword;
         instance.salt = random;
+        instance.saldo = 0;
       }
     }
   });
