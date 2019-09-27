@@ -5,11 +5,18 @@
 }
 </style>
 <table>
+    <tr>
+        <td>Movie Name</td>
+        <td>Price</td>
+        <td>Seats</td>
+        <td>Option</td>
+    </tr>
     <%for(let i=0;i<Data.length;i++){%>
         <tr>
             <td><%=Data[i].name%></td>
             <td><%=Data[i].price%></td>
             <td><%=Data[i].seats%></td>
+            <td><a href='/employees/movies/edit/<%=Data[i].id%>'>Edit</a> || <td><a href='/employees/movies/delete/<%=Data[i].id%>'>Delete</a></td>
         </tr>
     <%}%>
 </table>

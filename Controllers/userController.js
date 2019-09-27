@@ -1,5 +1,6 @@
 const User = require('../models').User;
 const hash = require('../helper/password');
+const Movie = require('../models').Movie
 
 
 class UserController {
@@ -10,6 +11,9 @@ class UserController {
             let employee = 0;
             if(req.session.employee) employee=1
             if(req.session.name) pass=1
+            req.session.employee = {
+                username : req.body.username
+            }
             res.render('userView/register',{
                 Pass:pass,
                 employee:employee
@@ -28,7 +32,10 @@ class UserController {
                 updatedAt : new Date()
             })
             .then((success)=>{
-                    res.redirect('/movies')
+                req.session.employee = {
+                    username : req.body.username
+                }
+                res.redirect('/movies')
             })
     }
     static getLogin (req,res){
@@ -73,8 +80,8 @@ class UserController {
         })
     }
     static getLogout(req,res){
+            res.redirect('/movies')
         req.session.destroy(()=>{
-            res.redirect('/')
         })
     }
 }

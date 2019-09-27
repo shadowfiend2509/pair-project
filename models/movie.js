@@ -11,6 +11,9 @@ module.exports = (sequelize, DataTypes) => {
   hooks : {
     beforeCreate(instance,option){
       instance.price=55000;
+    },
+    beforeUpdate(instance,option){
+      instance.price = 55000
     }
   }});
   Movie.associate = function(models) {

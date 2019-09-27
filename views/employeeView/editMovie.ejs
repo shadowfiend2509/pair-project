@@ -1,0 +1,10 @@
+<%-include('../../Partial/navBar/header.ejs')%>
+<div style ='margin:10% 35%; font-size: 30px;'>
+    <form method = 'post' action='/employees/movies/edit/<%=Data.id%>'>
+        <label>Id Movie</label> <input type='text' readonly name='id' value='<%=Data.id%>'><br>
+        <label>Movie Name</label> <input type='text' name='movieName' value="<%=Data.name%>"><br>
+        <label>Max Seats</label> <input type='number' name='seats' value="<%=Data.seats%>"><br>
+        <label>Description</label> <input type='text' name='description' value="<%=Data.description%>"><br>
+        <input type='submit' value='editMovie'>
+    </form>
+</div>
