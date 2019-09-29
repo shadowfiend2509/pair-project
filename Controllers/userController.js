@@ -47,7 +47,10 @@ class UserController {
             if(req.session.name) pass=1;
             res.render('userView/login',{
                 Pass:pass,
-                employee:employee
+                employee:employee,
+                err:{
+                    msg :null
+                }
             })
         })
         .catch(err=>{
@@ -64,23 +67,36 @@ class UserController {
                 username :req.body.username
             }
         }).then(data=>{
-            const hashPassword = hash.hashPasword(req.body.password,data.salt)
-            if(hashPassword == data.password){
-                req.session.name = {
-                    username : data.username
-                }
-                res.redirect('/movies')
-            }else res.send('username/password salah')
+            if(req.body.username.length == 0 || req.body.password.length ==0 ){
+                res.render('userView/login',{
+                    Pass:pass,
+                    employee:employee,
+                    err : {
+                        msg : 'username/password tidak boleh kosong'
+                    }
+                })
+            }else {
+                const hashPassword = hash.hashPasword(req.body.password,data.salt)
+                if(hashPassword == data.password){
+                    req.session.name = {
+                        username : data.username
+                    }
+                    res.redirect('/movies')
+                }else throw new Error()
+            }
         })
         .catch(err=>{
             res.render('userView/login',{
                 Pass:pass,
-                employee:employee
+                employee:employee,
+                err : {
+                    msg : 'username/password salah'
+                }
             })
         })
     }
     static getLogout(req,res){
-            res.redirect('/movies')
+        res.redirect('/movies')
         req.session.destroy(()=>{
         })
     }

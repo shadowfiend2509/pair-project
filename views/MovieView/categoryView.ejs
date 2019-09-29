@@ -70,7 +70,7 @@
                             
                             <%if(Movie.name=='Action'){%>
                                 <div class="container">
-                                    <button><a href='/movies/category/<%=Movie.id%>' style='color:#767676; text-decoration: none'>Action</a></button>
+                                    <button><a href='/movies/category/c?name=<%=Movie.name%>' style='color:#767676; text-decoration: none'>Action</a></button>
                                 <div class="overlay">
                                     <img src="/action.jpg" alt="Avatar" class="image">
                                 </div>
@@ -79,7 +79,7 @@
                             <%}else if(Movie.name=='Romance') {%>
 
                                 <div class="container">
-                                    <button><a href='/movies/category/<%=Movie.id%>' style='color:#767676; text-decoration: none''>Romance</a></button>
+                                    <button><a href='/movies/category/c?name=<%=Movie.name%>' style='color:#767676; text-decoration: none''>Romance</a></button>
                                 <div class="overlay">
                                     <img src="/romance.jpg" alt="Avatar" class="image">
                                 </div>
@@ -88,7 +88,7 @@
                             <%}else if(Movie.name=='Horror') {%>
 
                             <div class="container">
-                                    <button><a href='/movies/category/<%=Movie.id%>' style='color:#767676; text-decoration: none''>Horror</a></button>
+                                    <button><a href='/movies/category/c?name=<%=Movie.name%>' style='color:#767676; text-decoration: none''>Horror</a></button>
                                 <div class="overlay">
                                     <img src="/horor.jpg" alt="Avatar" class="image">
                                 </div>
@@ -97,7 +97,7 @@
                                 <%}else if(Movie.name=='Comedy') {%>
 
                             <div class="container">
-                                    <button><a href='/movies/category/<%=Movie.id%>' style='color:#767676; text-decoration: none''>Comedy</a></button>
+                                    <button><a href='/movies/category/c?name=<%=Movie.name%>' style='color:#767676; text-decoration: none''>Comedy</a></button>
                                 <div class="overlay">
                                     <img src="/comedy.jpg" alt="Avatar" class="image">
                                 </div>
@@ -106,7 +106,7 @@
                                 <%}else if(Movie.name=='Thriller') {%>
                             <div class="container">
                                     
-                                <button><a href='/movies/category/<%=Movie.id%>' style='color:#767676; text-decoration: none''>Thriller</a></button>
+                                <button><a href='/movies/category/c?name=<%=Movie.name%>' style='color:#767676; text-decoration: none''>Thriller</a></button>
                                 <div class="overlay">
                                     <img src="/thriller.jpg" alt="Avatar" class="image">
                                 </div>
@@ -115,7 +115,7 @@
                             
                                 <%}else if(Movie.name=='18+') {%>
                             <div class="container">
-                                <button><a href='/movies/category/<%=Movie.id%>' style='color:#767676; text-decoration: none''>18+</a></button>
+                                <button><a href='/movies/category/c?name=<%=Movie.name%>' style='color:#767676; text-decoration: none''>18+</a></button>
                                 <div class="overlay">
                                     <img src="/18+.jpg" alt="Avatar" class="image">
                             </div>

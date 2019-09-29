@@ -66,6 +66,9 @@
     <form method='post' action='/users/login'>
         <label>User Name </label><input type="text" placeholder="username" name="username"><br>
         <label>Password </label><input type='password' placeholder="password" name='password'><br>
+        <%if(err.msg){%>
+          <h4 style='color:red'><%=err.msg%></h4>  
+        <%}%>
         <input type='submit' value='Login'><br><br>
         Belum punya akun?<br><br>
         

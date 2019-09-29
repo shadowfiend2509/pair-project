@@ -3,178 +3,26 @@ const Employee = require('../models').Employee;
 const hash = require('../helper/password');
 const Movie = require('../models').Movie;
 
+const EmployeeController = require('../Controllers/employeeController');
+
 const middleware = (req,res,next) => {
-    if(req.session.name){
+    if(req.session.employee){
         next()
     }else{
-        res.redirect('/users/login');
+        res.redirect('/employees/login');
     }
 }
 
-
-Route.get('/',(req,res)=>{
-    res.redirect('/')
-})
-Route.get('/register',middleware,(req,res) => {
-    let pass= 0;
-    let employee = 0;
-    if(req.session.employee) employee=1
-    if(req.session.name) pass=1
-    res.render('employeeView/register',{
-        Pass:pass,
-        employee:employee
-    })
-})
-Route.post('/register',(req,res)=>{
-    let pass =0;
-    let employee = 0;
-    if(req.session.employee) employee=1
-    if(req.session.name) pass=1
-        Employee.create({
-            userName : req.body.username,
-            pasword : req.body.password,
-            role : req.body.role,
-            salt : '',
-            loginStatus : 0,
-            createdAt : new Date(),
-            updatedAt : new Date()
-        })
-        .then(ssc=>{
-            // res.send(ssc)
-            res.render('MovieView/list',{
-                Pass : pass,
-                employee : employee
-            })
-        })
-        .catch(err=>{
-            res.send(err)
-        })
-})
-
-Route.get('/login',(req,res)=>{
-    let pass =0;
-    let employee = 0;
-    if(req.session.employee) employee=1
-    if(req.session.name) pass=1;
-    res.render('employeeView/formLogin',{
-        Pass:pass,
-        employee:employee
-    })
-})
-Route.post('/login',(req,res)=>{
-    let pass=0;
-    let employee = 0;
-    if(req.session.employee) employee=1
-    if(req.session.name) pass=1;
-    Employee.findOne({
-        where :{
-            userName : req.body.username
-        }
-    })
-    .then(employee=>{
-        let hashpassword = hash.hashPasword(req.body.password,employee.salt)
-        if(employee.pasword == hashpassword){
-            req.session.employee = {
-                username : employee.username
-            }
-            res.redirect('/movies')
-        }else res.send('username/password salah')
-    })
-    .catch(err=>{
-        res.render('employeeView/formLogin',{
-            Pass:pass,
-            employee:employee
-        })
-    })
-})
-Route.get('/addMovie',(req,res)=>{
-    let pass=0;
-    let employee = 0;
-    if(req.session.employee) employee=1;
-    if(req.session.name) pass=1
-    res.render('employeeView/addMovie',{
-        Pass:pass,
-        employee:employee
-    })
-})
-Route.post('/addMovie',(req,res)=>{
-    let pass=0;
-    let employee = 0;
-    if(req.session.employee) empoloyee=1
-    if(req.session.name) pass=1
-    Movie.create({
-        name:req.body.movieName,
-        seats:req.body.seats,
-        description:req.body.description,
-        createdAt : new Date(),
-        updatedAt : new Date()
-    }).then(scc=>{
-        res.redirect('/employees/movies/listMovies')
-    }).catch(err=>{
-        res.send(err);
-    })
-})
-Route.get('/movies/listMovies',(req,res)=>{
-    let pass=0;
-    let employee = 0;
-    if(req.session.employee) empoloyee=1
-    if(req.session.name) pass=1
-    Movie.findAll()
-    .then(movie=>{
-        res.render('employeeView/listMovie',{
-            Data:movie,
-            Pass:pass,
-            employee:employee
-        })
-    })
-})
-Route.get('/logout',(req,res)=>{
-    req.session.destroy(()=>{
-        res.redirect('/employees/login')
-    })
-})
-Route.get('/movies/edit/:id',(req,res)=>{
-    let pass=0;
-    let employee=0;
-    if(req.session.employee) employee = 1;
-    if(req.session.name) pass =1;
-    Movie.findByPk(req.params.id)
-    .then(movie=>{
-        res.render('employeeView/editMovie',{
-            Pass:pass,
-            employee:employee,
-            Data : movie
-        })
-    })
-})
-Route.post('/movies/edit/:id',(req,res)=>{
-    let pass=0;
-    let employee=0;
-    // res.send(req.body)
-    if(req.session.employee) employee = 1;
-    if(req.session.name) pass =1;
-    Movie.update({
-        name : req.body.movieName,
-        seats : Number(req.body.seats),
-        description : req.body.description,
-        updateAt : new Date()
-    },{where:{id : req.body.id}})
-    .then(scc=>{
-        return Movie.findByPk(req.body.id)
-    })
-    .then(movie=>{
-        res.redirect('/employees/movies/listMovies')
-        // res.render('employeeView/listMovie',{
-        //     Pass : pass,
-        //     employee : employee,
-        //     Data : movie
-        // })
-    })
-})
-Route.get('movies/delete/:id',(req,res)=>{
-    Movie.destroy(req.params.id)
-    .then(success=>{
-        res.redirect('/employess/movies/listMovies')
-    })
-})
+Route.get('/',EmployeeController.home);
+Route.get('/register',middleware,EmployeeController.getRegister);
+Route.post('/register',EmployeeController.postRegister);
+Route.get('/login',EmployeeController.getLogin);
+Route.post('/login',EmployeeController.postLogin);
+Route.get('/addMovie',EmployeeController.getAddMovie);
+Route.post('/addMovie',EmployeeController.postAddMovie);
+Route.get('/movies/listMovies',middleware,EmployeeController.getListMovie);
+Route.get('/logout',EmployeeController.getLogout);
+Route.get('/movies/edit/:id',middleware,EmployeeController.getEditMovie);
+Route.post('/movies/edit/:id',EmployeeController.postEditMovie);
+Route.get('/movies/delete/:id',middleware,EmployeeController.getDeleteMovie);
 module.exports=Route;

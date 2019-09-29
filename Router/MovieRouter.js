@@ -10,7 +10,7 @@ const middleware = (req,res,next) => {
 
 Route.get('/',MovieController.listMovie);
 Route.get('/category/',MovieController.viewCategory);
-Route.get('/category/:id',MovieController.movieByCategory);
+Route.get('/category/c',MovieController.movieByCategory);
 Route.get('/buy/:name',middleware,MovieController.getBuyTicket);
 Route.post('/buy/:name',middleware,MovieController.postBuyTicket);
 

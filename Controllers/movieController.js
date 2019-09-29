@@ -51,7 +51,7 @@ class MovieController {
         let employee = 0;
         if(req.session.employee) employee = 1
         if(req.session.name) pass=1;
-        Category.findByPk(req.params.id,{include:Movie})
+        Category.findOne({ where : {name : req.query.name},include:Movie})
         .then(data=>{
             res.render('MovieView/movieByCategory',{
                 Category :data,
@@ -93,11 +93,11 @@ class MovieController {
         let pass=0
         let employee = 0;
         if(req.session.employee) employee = 1
-        let code = nameMovie[0]+nameMovie[1].toUpperCase()+'';
+        let code = nameMovie[0]+nameMovie[1]+'';
         for( let i=0; i<5; i++){
             let kata = 'r32rh3ipj3if0fh9heqji9jer032523t22';
             let random = Math.round(Math.random() * kata.length);
-            code+= kata[random].toUpperCase()
+            code+= kata[random]
         }
         let getMovie = []
         if(req.session.name) pass=1
